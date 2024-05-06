@@ -1,0 +1,378 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+.roboto-thin {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.roboto-light {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-black {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --background: #181a1b;
+  --white: #ffffff;
+  --black: #000000;
+  --gray: #dfd9d4;
+  --green: #20958f;
+  --dark-green: #248474;
+  --orange: #e34101;
+}
+h1 {
+  font-size: 2.986rem;
+}
+h2 {
+  font-size: 2.488rem;
+}
+h3 {
+  font-size: 2.074rem;
+}
+h4 {
+  font-size: 1.728rem;
+}
+h5 {
+  font-size: 1.44rem;
+}
+h6 {
+  font-size: 1.2rem;
+}
+p {
+  font-size: 1rem;
+}
+small {
+  font-size: 0.833rem;
+}
+a {
+  font-size: 1rem;
+  text-decoration: none;
+}
+body {
+  background-color: var(--background);
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: var(--white);
+  font-family: robot;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  opacity: 0;
+  transition: 0.2s ease;
+}
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-direction: column;
+  background-image: url(image\ copy.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  animation: --fade-out linear forwards;
+  animation-timeline: view();
+  animation-range: exit;
+}
+.main h2 {
+  z-index: 4;
+}
+.main .title {
+  scale: 2;
+  z-index: 4;
+}
+.main .slogan {
+  margin-top: 10px;
+  color: var(--gray);
+  z-index: 4;
+}
+.main span {
+  color: var(--green);
+}
+.section {
+  width: 100%;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: --fade-in linear forwards;
+  animation-timeline: view();
+  animation-range: cover;
+}
+.nav-bar {
+  position: fixed;
+  width: 100%;
+  height: 65px;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px;
+  z-index: 20;
+  animation: --background-appear linear forwards;
+  animation-timeline: scroll(root);
+  animation-range: 100vh 120vh;
+}
+button {
+  outline: none;
+  background: transparent;
+  border: 2px solid var(--green);
+  height: 40px;
+  width: 120px;
+  border-radius: 15px;
+  color: var(--gray);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+.nav-bar .menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+button:hover {
+  background-color: var(--green);
+  color: var(--white);
+  scale: 1.1;
+}
+.nav-bar .nav button,
+.nav-bar .iconbtn {
+  width: 40px;
+  border: none;
+  font-weight: 700;
+  padding-top: 3px;
+  background-color: var(--green);
+}
+.nav button {
+  transition: 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  padding-left: calc(8px);
+  padding-right: 20px;
+  padding-top: 0px;
+  overflow: visible;
+}
+.nav button::after {
+  display: none;
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--orange);
+  transform: translateY(28px) translateX(-5px);
+  transition: 0.2s ease;
+}
+.nav button p {
+  transform: translateX(-60px);
+  opacity: 0;
+  transition: 0.2s ease;
+  text-transform: uppercase;
+}
+.nav button:hover {
+  width: 140px;
+  scale: 1.1;
+}
+.nav button:hover p {
+  opacity: 1;
+  transform: translateX(0);
+}
+.triangle {
+  position: absolute;
+  height: 500vh;
+  width: 10vw;
+  transform: rotate(-30deg);
+  left: -100vw;
+  bottom: -200vh;
+  background-color: var(--background);
+  animation: --cover-from-side linear forwards;
+  animation-timeline: scroll(root);
+  animation-range: 0vh 150vh;
+  z-index: 3;
+}
+@keyframes --cover-from-side {
+  0% {
+    width: 10vw;
+  }
+  80% {
+    width: 250vw;
+    background-color: var(--green);
+  }
+  100% {
+    width: 250vw;
+    background-color: var(--background);
+  }
+}
+.scrollcontiner {
+  width: 100%;
+  height: 200vh;
+}
+@keyframes --background-appear {
+  from {
+    background-color: none;
+  }
+  to {
+    background-color: var(--background);
+  }
+}
+@keyframes --fade-out {
+  0% {
+    opacity: 1;
+  }
+  40%,
+  100% {
+    opacity: 0;
+  }
+}
+.section .title {
+  text-transform: uppercase;
+}
+@keyframes --fade-in {
+  0%,
+  40% {
+    opacity: 0;
+    transform: translateY(400px);
+  }
+  50%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.storeImg {
+  width: 50%;
+  margin-left: 20px;
+}
+.section p {
+  font-weight: 500;
+}
+.section img {
+  border-radius: 20px;
+}
+.section .title {
+  color: var(--green);
+}
+.section h1 {
+  color: var(--white);
+}
+.foot {
+  width: 100%;
+  height: 200px;
+  background-color: var(--green);
+  transform: translateY(300px);
+  animation: --footpage linear forwards;
+  animation-timeline: view();
+  animation-range: enter;
+  padding: 30px 60px;
+  display: flex;
+  gap: 30px;
+  border-radius: 10px 10px 0px 0px;
+  position: relative;
+  align-items: center;
+}
+.foot .column {
+  gap: 10px;
+}
+@keyframes --footpage {
+  0% {
+    transform: translateY(200px);
+  }
+  30%,
+  100% {
+    transform: translateY(0px);
+  }
+}
+.logoplace {
+  position: relative;
+  height: calc(100%);
+  width: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: -30px;
+  margin-bottom: -30px;
+  position: absolute;
+  right: 0px;
+  z-index: -2;
+}
+.foot button {
+  border: 2px solid var(--white);
+  color: var(--white);
+}
+.foot button:hover {
+  background-color: var(--white);
+  color: var(--green);
+}
+.foot .buttons {
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.logoplace .rectangle {
+  width: 700px;
+  height: 260px;
+  background-color: var(--white);
+  transform: rotate(60deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.logoplace .rectangle img {
+  transform: rotate(-60deg) translateX(25px);
+}
