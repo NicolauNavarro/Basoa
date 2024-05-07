@@ -137,6 +137,10 @@ body {
   animation: --fade-in linear forwards;
   animation-timeline: view();
   animation-range: cover;
+  padding-top: 110px;
+}
+#store{
+  margin-top: -300px;
 }
 .nav-bar {
   position: fixed;
@@ -361,7 +365,7 @@ button:hover {
 .foot .buttons {
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 .logoplace .rectangle {
   width: 700px;
@@ -375,4 +379,12 @@ button:hover {
 }
 .logoplace .rectangle img {
   transform: rotate(-60deg) translateX(25px);
+}
+#extrasNav{
+  padding-left: 7px;
+  padding-bottom: 1px;
+}
+#extrasNav span{
+  scale: 1.03;
+  transform: rotate(18deg);
 }
