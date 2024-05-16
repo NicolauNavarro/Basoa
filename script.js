@@ -2,8 +2,14 @@ const body = document.querySelector("body");
 
 window.addEventListener("load", loaded);
 
+const moblieInfo = document.querySelector('.contformobile')
+
 function loaded() {
   body.style.opacity = "1";
+}
+
+if(window.innerWidth > 600){
+  moblieInfo.remove()
 }
 
 const homeNav = document.querySelector("#homeNav");
@@ -55,6 +61,11 @@ function gotosection(section) {
 }
 
 document.addEventListener("scroll", () => {
+  navLine()
+});
+
+navLine()
+function navLine(){
   const homeSituation = getSituationNav(home, "homeNav", "");
   const storeSituation = getSituationNav(store, "storeNav", "homeNav");
   const repairSituation = getSituationNav(repair, "repairNav", "storeNav");
@@ -78,4 +89,4 @@ document.addEventListener("scroll", () => {
       return false;
     }
   }
-});
+}
