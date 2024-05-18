@@ -1,15 +1,16 @@
+//Nicolau Navarro
 const body = document.querySelector("body");
 
 window.addEventListener("load", loaded);
 
-const moblieInfo = document.querySelector('.contformobile')
+const moblieInfo = document.querySelector(".contformobile");
 
 function loaded() {
   body.style.opacity = "1";
 }
 
-if(window.innerWidth > 600){
-  moblieInfo.remove()
+if (window.innerWidth > 600) {
+  moblieInfo.remove();
 }
 
 const homeNav = document.querySelector("#homeNav");
@@ -61,11 +62,11 @@ function gotosection(section) {
 }
 
 document.addEventListener("scroll", () => {
-  navLine()
+  navLine();
 });
 
-navLine()
-function navLine(){
+navLine();
+function navLine() {
   const homeSituation = getSituationNav(home, "homeNav", "");
   const storeSituation = getSituationNav(store, "storeNav", "homeNav");
   const repairSituation = getSituationNav(repair, "repairNav", "storeNav");
@@ -91,63 +92,58 @@ function navLine(){
   }
 }
 
+const languagebtn = document.querySelector(".languagebtn");
+const storeContent = document.querySelector("#storeContent");
+const repairContent = document.querySelector("#repairContent");
+const ecoContent = document.querySelector("#ecoContent");
+const bikesContent = document.querySelector("#bikesContent");
+const extrasContent = document.querySelector("#extrasContent");
+const foot = document.querySelector(".foot");
+const mobileFoot = document.querySelector("#mobileFoot");
+const showcaseMain = document.querySelector("#showcaseMain");
 
-const languagebtn = document.querySelector('.languagebtn')
-const storeContent = document.querySelector('#storeContent')
-const repairContent = document.querySelector('#repairContent')
-const ecoContent = document.querySelector('#ecoContent')
-const bikesContent = document.querySelector('#bikesContent')
-const extrasContent = document.querySelector('#extrasContent')
-const foot = document.querySelector('.foot')
-const mobileFoot = document.querySelector('#mobileFoot')
-const showcaseMain = document.querySelector('#showcaseMain')
+languagebtn.addEventListener("click", () => {
+  let language = window.localStorage.getItem("language");
+  if (language == "cat") {
+    window.localStorage.setItem("language", "es");
+  }
+  if (language == "es") {
+    window.localStorage.setItem("language", "eng");
+  }
+  if (language == "eng") {
+    window.localStorage.setItem("language", "cat");
+  }
+  localstorageLanguage();
+});
 
-
-languagebtn.addEventListener('click', () => {
-  let language = window.localStorage.getItem('language')
-  if(language == 'cat'){
-    window.localStorage.setItem('language', 'es')
+function languagebtnTn() {
+  let language = window.localStorage.getItem("language");
+  if (language == "cat") {
+    window.localStorage.setItem("language", "es");
   }
-  if(language == 'es'){
-    window.localStorage.setItem('language', 'eng')
+  if (language == "es") {
+    window.localStorage.setItem("language", "eng");
   }
-  if(language == 'eng'){
-    window.localStorage.setItem('language', 'cat')
+  if (language == "eng") {
+    window.localStorage.setItem("language", "cat");
   }
-  localstorageLanguage()
-})
-
-function languagebtnTn(){
-  let language = window.localStorage.getItem('language')
-  if(language == 'cat'){
-    window.localStorage.setItem('language', 'es')
-  }
-  if(language == 'es'){
-    window.localStorage.setItem('language', 'eng')
-  }
-  if(language == 'eng'){
-    window.localStorage.setItem('language', 'cat')
-  }
-  localstorageLanguage()
+  localstorageLanguage();
 }
 
-
-localstorageLanguage()
-function localstorageLanguage(){
-  let language = window.localStorage.getItem('language')
-  if(language == null){
-    window.localStorage.setItem('language', 'cat')
-    changeLang('cat')
-  }else{
-    changeLang(language)
+localstorageLanguage();
+function localstorageLanguage() {
+  let language = window.localStorage.getItem("language");
+  if (language == null) {
+    window.localStorage.setItem("language", "cat");
+    changeLang("cat");
+  } else {
+    changeLang(language);
   }
 }
 
-
-
-function changeLang(language){
-  if(language == 'cat'){
-    languagebtn.innerHTML= "<p>Cat</p>"
+function changeLang(language) {
+  if (language == "cat") {
+    languagebtn.innerHTML = "<p>Cat</p>";
     showcaseMain.innerHTML = `
     <div class="infoSqr">
             <h6>Comerç local a</h6>
@@ -162,10 +158,10 @@ function changeLang(language){
           <button class="languagebtnT" onclick="languagebtnTn()">
           <p>Cat</p>
         </button>
-    `
+    `;
   }
-  if(language == 'es'){
-    languagebtn.innerHTML= "<p>Es</p>"
+  if (language == "es") {
+    languagebtn.innerHTML = "<p>Es</p>";
     showcaseMain.innerHTML = `
     <div class="infoSqr">
             <h6>Comercio local en</h6>
@@ -180,10 +176,10 @@ function changeLang(language){
           <button class="languagebtnT" onclick="languagebtnTn()">
           <p>Es</p>
         </button>
-    `
+    `;
   }
-  if(language == 'eng'){
-    languagebtn.innerHTML= "<p>Eng</p>"
+  if (language == "eng") {
+    languagebtn.innerHTML = "<p>Eng</p>";
     showcaseMain.innerHTML = `
     <div class="infoSqr">
             <h6>Local business in</h6>
@@ -198,25 +194,25 @@ function changeLang(language){
           <button class="languagebtnT" onclick="languagebtnTn()">
           <p>Eng</p>
         </button>
-    `
+    `;
   }
-  storeContent.innerHTML = sectionStructure(language, 'store');
-  repairContent.innerHTML = sectionStructure(language, 'repair');
-  ecoContent.innerHTML = sectionStructure(language, 'eco');
-  bikesContent.innerHTML = sectionStructure(language, 'bikes');
-  extrasContent.innerHTML = sectionStructure(language, 'extras');
-  traduceFoot(language)
-  traduceMobileFoot(language)
+  storeContent.innerHTML = sectionStructure(language, "store");
+  repairContent.innerHTML = sectionStructure(language, "repair");
+  ecoContent.innerHTML = sectionStructure(language, "eco");
+  bikesContent.innerHTML = sectionStructure(language, "bikes");
+  extrasContent.innerHTML = sectionStructure(language, "extras");
+  traduceFoot(language);
+  traduceMobileFoot(language);
 }
 
-function sectionStructure(language, who){
-  const allContent = getContent(language, who)
-  const sTitle = allContent[0]
-  const sSubtitle = allContent[1]
-  const sFirst = allContent[2]
-  const sSecond = allContent[3]
-  const sThird = allContent[4]
-  const sForth = allContent[5]
+function sectionStructure(language, who) {
+  const allContent = getContent(language, who);
+  const sTitle = allContent[0];
+  const sSubtitle = allContent[1];
+  const sFirst = allContent[2];
+  const sSecond = allContent[3];
+  const sThird = allContent[4];
+  const sForth = allContent[5];
   let structure = `
   <div class="title">
             <h1>${sTitle}</h1>
@@ -232,22 +228,21 @@ function sectionStructure(language, who){
             ${sThird}
           </p>
           <p>${sForth}</p>
-  `
-  return(structure)
+  `;
+  return structure;
 }
 
-
-function getContent(language, who){
-  let sTitle = ''
-  let sSubtitle = ''
-  let sFirst = ''
-  let sSecond = ''
-  let sThird = ''
-  let sForth = ''
-  if(language == 'cat'){
-    if(who == 'store'){
-      sTitle = 'Store';
-      sSubtitle = 'EN CERDANYOLA DEL VALLÈS';
+function getContent(language, who) {
+  let sTitle = "";
+  let sSubtitle = "";
+  let sFirst = "";
+  let sSecond = "";
+  let sThird = "";
+  let sForth = "";
+  if (language == "cat") {
+    if (who == "store") {
+      sTitle = "Store";
+      sSubtitle = "EN CERDANYOLA DEL VALLÈS";
       sFirst = `A Basoa Bikes, ens apassiona tot el relacionat amb el món de les bicicletes. 
       Situats al cor de Cerdanyola del Vallès, Barcelona, oferim una àmplia gamma 
       de productes i serveis per a ciclistes de totes les edats i nivells. Amb una 
@@ -261,11 +256,11 @@ function getContent(language, who){
       Cada visita a Basoa Bikes és una oportunitat per descobrir noves possibilitats i 
       millorar el teu rendiment ciclista. Vine i descobreix per què tants ciclistes confien 
       en nosaltres per les seves necessitats ciclistes.`;
-      sForth = "Troba-ns a Carrer d'Anselm Clavé, 22, Local 1A"
+      sForth = "Troba-ns a Carrer d'Anselm Clavé, 22, Local 1A";
     }
-    if(who == 'repair'){
-      sTitle = 'Repair';
-      sSubtitle = 'TALLER DE REPARACIONS';
+    if (who == "repair") {
+      sTitle = "Repair";
+      sSubtitle = "TALLER DE REPARACIONS";
       sFirst = `A Basoa Bikes, oferim serveis de reparació i manteniment de bicicletes de la més alta qualitat. 
       El nostre taller especialitzat està equipat per gestionar tot tipus de reparacions, des de les 
       més senzilles fins a les més complexes. Els nostres clients valoren la rapidesa i l'eficàcia amb 
@@ -278,9 +273,9 @@ function getContent(language, who){
       sThird = `Per què conformar-te amb menys quan pots tenir la millor qualitat i atenció? Vine a Basoa Bikes i 
       experimenta la diferència en serveis de reparació i manteniment de bicicletes.`;
     }
-    if(who == 'eco'){
-      sTitle = 'Eco';
-      sSubtitle = 'BICIS AMB EL MEDI AMBIENT';
+    if (who == "eco") {
+      sTitle = "Eco";
+      sSubtitle = "BICIS AMB EL MEDI AMBIENT";
       sFirst = `A Basoa Bikes, estem compromesos amb la sostenibilitat i oferim una excel·lent selecció de 
       bicicletes elèctriques. Les bicicletes elèctriques són una manera fantàstica de moure't per 
       la ciutat de manera ecològica, eficient i sense esforç.`;
@@ -294,9 +289,9 @@ function getContent(language, who){
       Vine a Basoa Bikes i descobreix els avantatges de les bicicletes elèctriques, i com poden 
       millorar la teva vida diària.`;
     }
-    if(who == 'bikes'){
-      sTitle = 'Bikes';
-      sSubtitle = 'BICICLETES ELÈCTRIQUES I MECÀNIQUES';
+    if (who == "bikes") {
+      sTitle = "Bikes";
+      sSubtitle = "BICICLETES ELÈCTRIQUES I MECÀNIQUES";
       sFirst = `A Basoa Bikes, oferim una àmplia varietat de bicicletes per a tots
       els gustos i necessitats. Des de bicicletes de muntanya fins a 
       bicicletes de carretera, passant per bicicletes urbanes i per a nens, 
@@ -310,9 +305,9 @@ function getContent(language, who){
       i estil de vida. Creiem que cada ciclista mereix la millor bicicleta i l'experiència 
       de compra més satisfactòria. Vine a Basoa Bikes i descobreix la bicicleta dels teus somnis.`;
     }
-    if(who == 'extras'){
-      sTitle = 'Extras';
-      sSubtitle = 'ACCESSORIS I RECANVIS TOP';
+    if (who == "extras") {
+      sTitle = "Extras";
+      sSubtitle = "ACCESSORIS I RECANVIS TOP";
       sFirst = `Completa la teva experiència en bicicleta amb la nostra àmplia gamma 
       d'extres i accessoris. A Basoa Bikes, trobaràs tot el que necessites per 
       personalitzar i millorar la teva bicicleta, des de cascs i llums fins a 
@@ -329,10 +324,10 @@ function getContent(language, who){
     }
   }
 
-  if(language == 'es'){
-    if(who == 'store'){
-      sTitle = 'Store';
-      sSubtitle = 'EN CERDANYOLA DEL VALLÈS';
+  if (language == "es") {
+    if (who == "store") {
+      sTitle = "Store";
+      sSubtitle = "EN CERDANYOLA DEL VALLÈS";
       sFirst = `En Basoa Bikes, nos apasiona todo lo relacionado con el mundo de las bicicletas. 
       Ubicados en el corazón de Cerdanyola del Vallès, Barcelona, ofrecemos una amplia gama de 
       productos y servicios para ciclistas de todas las edades y niveles. Con una puntuación media 
@@ -346,11 +341,11 @@ function getContent(language, who){
       Cada visita a Basoa Bikes es una oportunidad para descubrir nuevas posibilidades y mejorar tu 
       rendimiento ciclista. Ven y descubre por qué tantos ciclistas confían en nosotros para sus necesidades 
       ciclistas.`;
-      sForth = "Encuentranos en Carrer d'Anselm Clavé, 22, Local 1A"
+      sForth = "Encuentranos en Carrer d'Anselm Clavé, 22, Local 1A";
     }
-    if(who == 'repair'){
-      sTitle = 'Repair';
-      sSubtitle = 'TALLER DE REPARACIONES';
+    if (who == "repair") {
+      sTitle = "Repair";
+      sSubtitle = "TALLER DE REPARACIONES";
       sFirst = `En Basoa Bikes, ofrecemos servicios de reparación y mantenimiento de bicicletas de la más alta 
       calidad. Nuestro taller especializado está equipado para manejar todo tipo de reparaciones, desde las más 
       simples hasta las más complejas. Nuestros clientes valoran la rapidez y eficacia con que realizamos las 
@@ -363,9 +358,9 @@ function getContent(language, who){
       sThird = `¿Por qué conformarte con menos cuando puedes tener la mejor calidad y atención? Ven a Basoa Bikes 
       y experimenta la diferencia en servicios de reparación y mantenimiento de bicicletas.`;
     }
-    if(who == 'eco'){
-      sTitle = 'Eco';
-      sSubtitle = 'BICIS CON EL MEDIO AMBIENTE';
+    if (who == "eco") {
+      sTitle = "Eco";
+      sSubtitle = "BICIS CON EL MEDIO AMBIENTE";
       sFirst = `En Basoa Bikes, estamos comprometidos con la sostenibilidad y ofrecemos una excelente selección de 
       bicicletas eléctricas. Las bicicletas eléctricas son una forma fantástica de moverte por la ciudad de manera 
       ecológica, eficiente y sin esfuerzo.`;
@@ -377,9 +372,9 @@ function getContent(language, who){
       En Basoa Bikes, creemos en un futuro más verde y nos gustaría que formaras parte de este cambio. Ven a Basoa Bikes 
       y descubre las ventajas de las bicicletas eléctricas, y cómo pueden mejorar tu vida diaria.`;
     }
-    if(who == 'bikes'){
-      sTitle = 'Bikes';
-      sSubtitle = 'BICICLETAS ELÉCTRICAS Y MECÁNICAS';
+    if (who == "bikes") {
+      sTitle = "Bikes";
+      sSubtitle = "BICICLETAS ELÉCTRICAS Y MECÁNICAS";
       sFirst = `En Basoa Bikes, ofrecemos una amplia variedad de bicicletas para todos los gustos y necesidades. 
       Desde bicicletas de montaña hasta bicicletas de carretera, pasando por bicicletas urbanas y para niños, 
       tenemos la bicicleta perfecta para ti.`;
@@ -390,9 +385,9 @@ function getContent(language, who){
       la bicicleta que mejor se adapte a tus necesidades y estilo de vida. Creemos que cada ciclista merece la mejor bicicleta 
       y la experiencia de compra más satisfactoria. Ven a Basoa Bikes y descubre la bicicleta de tus sueños.`;
     }
-    if(who == 'extras'){
-      sTitle = 'Extras';
-      sSubtitle = 'ACCESORIOS Y RECAMBIOS TOP';
+    if (who == "extras") {
+      sTitle = "Extras";
+      sSubtitle = "ACCESORIOS Y RECAMBIOS TOP";
       sFirst = `Completa tu experiencia en bicicleta con nuestra amplia gama de extras y accesorios. En Basoa Bikes, encontrarás 
       todo lo que necesitas para personalizar y mejorar tu bicicleta, desde cascos y luces hasta portabicicletas y ropa técnica.`;
       sSecond = `Nuestro equipo te ayudará a seleccionar los accesorios adecuados para tus necesidades, asegurando que estés equipado 
@@ -404,12 +399,10 @@ function getContent(language, who){
     }
   }
 
-
-
-  if(language == 'eng'){
-    if(who == 'store'){
-      sTitle = 'Store';
-      sSubtitle = 'IN CERDANYOLA DEL VALLÈS';
+  if (language == "eng") {
+    if (who == "store") {
+      sTitle = "Store";
+      sSubtitle = "IN CERDANYOLA DEL VALLÈS";
       sFirst = `At Basoa Bikes, we are passionate about everything related to the world of bicycles. 
       Located in the heart of Cerdanyola del Vallès, Barcelona, we offer a wide range of products and 
       services for cyclists of all ages and levels. With an average rating of 4.9 out of 5 from 15 reviews, 
@@ -420,11 +413,11 @@ function getContent(language, who){
       sThird = `Our commitment to quality and customer satisfaction is unmatched. Each visit to Basoa Bikes is 
       an opportunity to discover new possibilities and enhance your cycling performance. Come and find out why 
       so many cyclists trust us for their cycling needs.`;
-      sForth = "Find us at Carrer d'Anselm Clavé, 22, Local 1A"
+      sForth = "Find us at Carrer d'Anselm Clavé, 22, Local 1A";
     }
-    if(who == 'repair'){
-      sTitle = 'Repair';
-      sSubtitle = 'REPAIR WORKSHOP';
+    if (who == "repair") {
+      sTitle = "Repair";
+      sSubtitle = "REPAIR WORKSHOP";
       sFirst = `At Basoa Bikes, we offer top-quality bike repair and maintenance services. Our specialized 
       workshop is equipped to handle all types of repairs, from the simplest to the most complex. Our customers 
       appreciate the speed and efficiency with which we carry out repairs, ensuring you can get back on the road 
@@ -436,9 +429,9 @@ function getContent(language, who){
       sThird = `Why settle for less when you can have the best quality and care? Come to Basoa Bikes and experience the 
       difference in bike repair and maintenance services.`;
     }
-    if(who == 'eco'){
-      sTitle = 'Eco';
-      sSubtitle = 'ECO-FRIENDLY BIKES';
+    if (who == "eco") {
+      sTitle = "Eco";
+      sSubtitle = "ECO-FRIENDLY BIKES";
       sFirst = `At Basoa Bikes, we are committed to sustainability and offer an excellent selection of electric bikes. 
       Electric bikes are a fantastic way to get around the city in an eco-friendly, efficient, and effortless manner.`;
       sSecond = `Our expert staff will help you find the electric bike that best suits your needs and lifestyle. 
@@ -449,9 +442,9 @@ function getContent(language, who){
       we believe in a greener future and would love for you to be a part of this change. Come to Basoa Bikes and discover 
       the benefits of electric bikes, and how they can enhance your daily life.`;
     }
-    if(who == 'bikes'){
-      sTitle = 'Bikes';
-      sSubtitle = 'ELECTRIC AND MECHANICAL BIKES';
+    if (who == "bikes") {
+      sTitle = "Bikes";
+      sSubtitle = "ELECTRIC AND MECHANICAL BIKES";
       sFirst = `At Basoa Bikes, we offer a wide variety of bikes for all tastes and needs. From mountain bikes to road bikes, 
       including urban bikes and children's bikes, we have the perfect bike for you.`;
       sSecond = `Whether you are an experienced cyclist or just starting out, our team is here to help you choose the ideal bike. 
@@ -460,9 +453,9 @@ function getContent(language, who){
       needs and lifestyle. We believe every cyclist deserves the best bike and the most satisfying shopping experience. Come to 
       Basoa Bikes and discover the bike of your dreams.`;
     }
-    if(who == 'extras'){
-      sTitle = 'Extras';
-      sSubtitle = 'TOP ACCESSORIES AND SPARE PARTS';
+    if (who == "extras") {
+      sTitle = "Extras";
+      sSubtitle = "TOP ACCESSORIES AND SPARE PARTS";
       sFirst = `Complete your biking experience with our wide range of extras and accessories. At Basoa Bikes, you'll find everything 
       you need to customize and enhance your bike, from helmets and lights to bike racks and technical clothing.`;
       sSecond = `Our team will help you choose the right accessories for your needs, ensuring you are equipped with the best products 
@@ -473,55 +466,53 @@ function getContent(language, who){
     }
   }
 
-
-  return[sTitle, sSubtitle, sFirst, sSecond, sThird, sForth]
+  return [sTitle, sSubtitle, sFirst, sSecond, sThird, sForth];
 }
 
-
-function traduceFoot(language){
-  let findUs = ''
-  let talk = ''
-  if(language == 'cat'){
+function traduceFoot(language) {
+  let findUs = "";
+  let talk = "";
+  if (language == "cat") {
     findUs = `
   Troba-ns:<br />
           Dilluns (De 16:00 a 20:00)<br />
           Dimarts a Divendres (De 10:00 a 13:30h i de 16:00 a 20:00h)<br />
           Dissabtes (de 10:00 a 14:00)
-  `
-  talk = `
+  `;
+    talk = `
   <h5>Parlem!</h5>
         <p>Adreça: C/ Anselm Clavé, 20-22, Local 1A</p>
         <p>Telèfon: 681962603</p>
         <p>Correu: info@basoabikes.com</p>
-  `
+  `;
   }
-  if(language == 'es'){
+  if (language == "es") {
     findUs = `
   Encuentranos:<br />
           Lunes (De 16:00 a 20:00)<br />
           Martes a Viernes (De 10:00 a 13:30h y de 16:00 a 20:00h)<br />
           Sabados (de 10:00 a 14:00)
-  `
-  talk = `
+  `;
+    talk = `
   <h5>Hablemos!</h5>
         <p>Dirección: C/ Anselm Clavé, 20-22, Local 1A</p>
         <p>Telefono: 681962603</p>
         <p>Correo: info@basoabikes.com</p>
-  `
+  `;
   }
-  if(language == 'eng'){
+  if (language == "eng") {
     findUs = `
   Find us:<br />
           Mondays (From 16:00 to 20:00)<br />
           Tuesday to Friday (10:00 to 13:30h and 16:00 to 20:00h)<br />
           Saturdays (From 10:00 to 14:00)
-  `
-  talk = `
+  `;
+    talk = `
   <h5>Lets talk</h5>
         <p>Direction: C/ Anselm Clavé, 20-22, Local 1A</p>
         <p>Phone: 681962603</p>
         <p>Mail: info@basoabikes.com</p>
-  `
+  `;
   }
 
   let contentFoot = `
@@ -556,14 +547,13 @@ function traduceFoot(language){
           <img src="images/logo.png" alt="" />
         </div>
       </div>
-  `
-  foot.innerHTML= contentFoot
+  `;
+  foot.innerHTML = contentFoot;
 }
 
-
-function traduceMobileFoot(language){
-  let content = ''
-  if(language == 'cat'){
+function traduceMobileFoot(language) {
+  let content = "";
+  if (language == "cat") {
     content = `
     <div class="column">
           <div class="title">
@@ -605,9 +595,9 @@ function traduceMobileFoot(language){
               Maps
             </button>
           </div>
-    `
+    `;
   }
-  if(language == 'es'){
+  if (language == "es") {
     content = `
     <div class="column">
           <div class="title">
@@ -648,9 +638,9 @@ function traduceMobileFoot(language){
             >
               Maps
             </button>
-          </div>`
+          </div>`;
   }
-  if(language == 'eng'){
+  if (language == "eng") {
     content = `
     <div class="column">
           <div class="title">
@@ -691,7 +681,7 @@ function traduceMobileFoot(language){
             >
               Maps
             </button>
-          </div>`
+          </div>`;
   }
-  mobileFoot.innerHTML = content
+  mobileFoot.innerHTML = content;
 }
