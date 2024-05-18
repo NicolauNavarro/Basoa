@@ -102,7 +102,7 @@ body {
   justify-content: center;
   gap: 15px;
   flex-direction: column;
-  background-image: url(image\ copy.png);
+  background-image: url(images/background.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -299,6 +299,7 @@ button:hover {
 }
 .storeImg {
   width: 50%;
+  min-width: 50%;
   margin-left: 20px;
 }
 .section p {
@@ -420,7 +421,15 @@ button:hover {
 .contformobile{
   display: none;
 }
-
+.languagebtn{
+  width: 100px;
+  border: 3px solid var(--green);
+}
+.languagebtnT{
+  width: 100px;
+  border: 3px solid var(--green);
+  display: none;
+}
 
 
 
@@ -589,7 +598,11 @@ button:hover {
   .contformobile .column{
     gap: 10px;
   }
-
+  .languagebtnT{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
 
 }
